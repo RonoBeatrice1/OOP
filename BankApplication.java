@@ -4,29 +4,33 @@ class BankAccount {
     private String accountNumber;
     private double balance;
 
+ // Constructor to initialize a bank account with an account number
     public BankAccount(String accountNumber) {
         this.accountNumber = accountNumber;
         this.balance = 0.0;
     }
 
+ // This method allows the user to deposit funds into the account
     public void deposit(double amount) {
         if (amount > 0) {
-            balance += amount;
+            balance += amount; // Add the deposited amount to the balance
             System.out.println("Deposited $" + amount);
         } else {
             System.out.println("Invalid deposit amount.");
         }
     }
 
+// This method allows the user to withdraw funds from the account
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
-            balance -= amount;
+            balance -= amount; // Subtract the withdrawn amount from the balance
             System.out.println("Withdrawn $" + amount);
         } else {
             System.out.println("Invalid withdrawal amount or insufficient balance.");
         }
     }
 
+// This method returns the current balance of the account
     public double getBalance() {
         return balance;
     }
