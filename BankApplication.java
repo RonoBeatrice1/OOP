@@ -34,6 +34,32 @@ class BankAccount {
     public double getBalance() {
         return balance;
     }
+
+     public void deposit(double amount) {
+        try {
+            if (amount > 0) {
+                balance += amount;
+                System.out.println("Deposited $" + amount);
+            } else {
+                System.out.println("Invalid deposit amount.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid numeric amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        try {
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                System.out.println("Withdrawn $" + amount);
+            } else {
+                System.out.println("Invalid withdrawal amount or insufficient balance.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid numeric amount.");
+        }
+    }
 }
 
 public class BankApplication {
